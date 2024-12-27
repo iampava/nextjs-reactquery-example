@@ -8,20 +8,20 @@ const userKeys = {
 export const useUsers = () => {
   return useQuery({
     queryKey: userKeys.all,
-    queryFn: fetchUsers
+    queryFn: () => fetchUsers()
   })
 }
 
 export const useSuspendedUsers = () => {
   return useSuspenseQuery({
     queryKey: userKeys.all,
-    queryFn: fetchUsers
+    queryFn: () => fetchUsers()
   })
 }
 
 export const prefetchUsers = (queryClient: QueryClient) => {
   return queryClient.prefetchQuery({
     queryKey: userKeys.all,
-    queryFn: fetchUsers,
+    queryFn: () => fetchUsers(),
   });
 }

@@ -8,20 +8,20 @@ const postsKeys = {
 export const usePosts = () => {
   return useQuery({
     queryKey: postsKeys.all,
-    queryFn: fetchPosts
+    queryFn: () => fetchPosts()
   })
 }
 
 export const useSuspendedPosts = () => {
   return useSuspenseQuery({
     queryKey: postsKeys.all,
-    queryFn: fetchPosts
+    queryFn: () => fetchPosts()
   })
 }
 
 export const prefetchPosts = (queryClient: QueryClient) => {
   return queryClient.prefetchQuery({
     queryKey: postsKeys.all,
-    queryFn: fetchPosts,
+    queryFn: () => fetchPosts(),
   });
 }
