@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import { Post } from "../types";
+import { Post, User } from "../types";
 
 function createMockPost(): Post {
   return {
@@ -9,4 +9,12 @@ function createMockPost(): Post {
   };
 }
 
-export { createMockPost };
+function createMockUser(): User {
+  return {
+    id: faker.string.uuid(),
+    name: faker.person.firstName(),
+    avatar: faker.image.avatar(),
+  };
+}
+
+export { createMockPost, createMockUser };

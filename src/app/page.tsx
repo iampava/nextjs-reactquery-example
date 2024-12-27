@@ -1,10 +1,15 @@
 import { Suspense } from "react";
-import { Home } from "./components/Home";
+import Home from "./components/Home";
 
 export default function HomePage() {
   return (
-    <Suspense fallback={<p> loading </p>}>
+    <div>
+      <p> Home Page </p>
+      <Suspense fallback={<p> Page Fallback</p>}>
       <Home />
-    </Suspense>
+      </Suspense>
+    </div>
   );
 }
+
+export const dynamic = "force-dynamic";
